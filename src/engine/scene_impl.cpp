@@ -120,7 +120,7 @@ namespace crmpm
     {
         beforeAdvance();
         float dt = *((float *)data);
-        static_cast<SimulationFactoryImpl *>(mFactory)->beforeSceneAdvance(); // Note: a second scene advance will not trigger copy again.
+        mFactory->beforeSceneAdvance(); // Note: a second scene advance will not trigger copy again.
         float timeAdvanced = 0;
         while (timeAdvanced < dt)
         {
@@ -143,7 +143,7 @@ namespace crmpm
 
         // TODO: This will lead to copy every time a scene fetches results.
         // A better way is to have a Factory.advanceAll/fetchAll
-        static_cast<SimulationFactoryImpl *>(mFactory)->afterSceneAdvance(mIsGpu);
+        mFactory->afterSceneAdvance(mIsGpu);
     }
 
     void SceneImpl::setActiveMaskRange(unsigned int start, unsigned int length, char value)
@@ -251,7 +251,7 @@ namespace crmpm
         // Release all referred shapes
         for (ShapeImpl *shape : mShapes)
         {
-            static_cast<ShapeImpl *>(shape)->release();
+            shape->release();
         }
         mShapes.clear();
 

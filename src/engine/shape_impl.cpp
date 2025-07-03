@@ -104,6 +104,6 @@ namespace crmpm
             mGeometry->release();
             mGeometry = nullptr;
         }
-        static_cast<SimulationFactoryImpl *>(mFactory)->releaseShape(this);
+        mFactory->releaseShape(this);
     }
 } // namespace crmpm

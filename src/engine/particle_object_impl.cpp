@@ -161,7 +161,7 @@ namespace crmpm
         CR_DEBUG_LOG_INFO("%s", "Releasing ParticleObject.");
         if (mScene)
         {
-            static_cast<SceneImpl *>(mScene)->release();
+            mScene->release();
         }
     }
 } // namespace crmpm

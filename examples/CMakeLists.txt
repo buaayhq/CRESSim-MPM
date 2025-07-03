@@ -51,4 +51,5 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/tools)
 
 add_subdirectory(example_c_api)
+add_subdirectory(example_cutting)
 add_subdirectory(example_object_creation)

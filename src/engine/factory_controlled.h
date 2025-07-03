@@ -38,18 +38,18 @@
 
 namespace crmpm
 {
-    class SimulationFactory;
+    class SimulationFactoryImpl;
 
     class FactoryControlled
     {
     protected:
-        SimulationFactory *mFactory;
+        SimulationFactoryImpl *mFactory;
 
         FactoryControlled() {}
 
         virtual ~FactoryControlled() {};
 
-        void setFactory(SimulationFactory &factory) { mFactory = &factory; }
+        void setFactory(SimulationFactoryImpl &factory) { mFactory = &factory; }
 
         void markDirty(SimulationFactoryGpuDataDirtyFlags flags); // defined in simulation_factory_impl.cu
     };

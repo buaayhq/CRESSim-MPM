@@ -104,14 +104,21 @@ namespace crmpm
 
         CR_FORCE_INLINE CR_CUDA_HOST CR_CUDA_DEVICE float &operator()(int row, int col)
         {
-            float *base = &col0.x;
-            return base[col * 4 + row];
+            // Not sure if this is UB or implementation defined.
+            // Should work on most compilers.
+            char *base = reinterpret_cast<char *>(this);
+            const int idx = col * 4 + row;
+            const int offset = idx * sizeof(float);
+            return *reinterpret_cast<float *>(base + offset);
         }
 
         CR_FORCE_INLINE CR_CUDA_HOST CR_CUDA_DEVICE const float &operator()(int row, int col) const
         {
-            const float *base = &col0.x;
-            return base[col * 4 + row];
+            // Same as above
+            const char *base = reinterpret_cast<const char *>(this);
+            const int idx = col * 4 + row;
+            const int offset = idx * sizeof(float);
+            return *reinterpret_cast<const float *>(base + offset);
         }
 
         /**

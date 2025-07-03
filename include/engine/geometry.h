@@ -80,6 +80,9 @@ namespace crmpm
         * **Capsule**
         * - `params0.x`: radius
         * - `params0.y`: cylinder half height
+        * 
+        * **QuadSlicer**
+        * - `params0.xy`: half size
         *
         * **SDF Geometries**
         * - `params0.x`: sdfDataOffset

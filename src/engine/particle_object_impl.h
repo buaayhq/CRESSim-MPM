@@ -71,10 +71,10 @@ namespace crmpm
         ~ParticleObjectImpl() {}
 
         void initialize(float particleSpacing,
-                                  const Geometry &geom,
-                                  const Vec3f &position,
-                                  const Quat &rotation,
-                                  const Vec3f &invScale);
+                        const Geometry &geom,
+                        const Vec3f &position,
+                        const Quat &rotation,
+                        const Vec3f &invScale);
 
         void setParticleMass(float mass)
         {

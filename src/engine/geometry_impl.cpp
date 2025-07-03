@@ -47,6 +47,6 @@ namespace crmpm
     void GeometryImpl::_release()
     {
         CR_DEBUG_LOG_INFO("%s", "Releasing GeometryImpl.");
-        static_cast<SimulationFactoryImpl *>(mFactory)->releaseGeometry(this);
+        mFactory->releaseGeometry(this);
     }
 } // namespace crmpm
